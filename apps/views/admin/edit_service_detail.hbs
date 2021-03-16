@@ -1,0 +1,126 @@
+<main class="main-content">
+    <div id="mainContent">
+        <div class="container mt-60">
+            <div class="masonry-item col-md-12">
+                <div class="card shadow mb-4">
+                    <div class="text-center card-header py-3 text-center">
+                        <h3 style="font-weight: bold; color: #029a00"><a></a>ADD SERVICE</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mt-30">
+                            <form id="formAddPost">
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="title">
+                                            <h4>Description For ID</h4>
+                                        </label><br>
+                                        <select name="id_services" class="custom-select" id="gender2">
+                                            <option disabled selected >Choose...</option>
+                                            {{#each lcListServices}}
+                                            <option title="{{services_name}}">{{id}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>  
+                                    <div class="form-group col-md-8">
+                                        <label for="title">
+                                            <h4>Service Name</h4>
+                                        </label>
+                                        <textarea rows="1" type="text" class="form-control" id="serviceName"
+                                            name="name" placeholder="Type name of service">{{dataService.name}}</textarea>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="title">
+                                            <h4>Price</h4>
+                                        </label>
+                                        <textarea rows="1" type="text" class="form-control" id="serviceName"
+                                            name="price" placeholder="Type price of service">{{dataService.price}}</textarea>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="title">
+                                            <h4>Discount Percent</h4>
+                                        </label>
+                                        <textarea rows="1" type="text" class="form-control" id="serviceName"
+                                            name="discount_percent" placeholder="Type discount percent for the service">{{dataService.discount_percent}}</textarea>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="title">
+                                            <h4>Desciption</h4>
+                                        </label>
+                                        <textarea rows="1" type="text" class="form-control" id="serviceName"
+                                            name="description" placeholder="Decribe Detail">{{dataService.description}}</textarea>
+                                    </div>
+                                </div>
+                                <hr>
+                            </form>
+                        </div>
+                        <button type="button" onclick="backListServiceDetails()" class="btn btn-warning mr-2 ml-2 mb-3">
+                            BACK
+                        </button>
+                        <button type="button" onclick="deleteServiceDetails({{id}})" class="btn btn-warning mr-2 ml-2 mb-3">
+                            DELETE
+                        </button>
+                        <button type="submit" onclick="updateServiceDetails({{id}})" class="btn btn-primary mr-2 ml-2 mb-3">
+                            SAVE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    $(document).tooltip({ 
+        selector: "[title]",
+        placement: "top",
+        trigger: "focus",
+        animation: false});
+    //update post
+    function updateServiceDetails(id) {
+        var frmUn = $('form#formAddPost').serializeArray();
+        var frm = {};
+        $.map(frmUn, function (n, i) {
+            frm[n['name']] = n['value'];
+        });
+        console.log(JSON.stringify(frm));
+        $.ajax({
+            url: './edit?id=' + id,
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(frm),
+            complete: () => console.log('completed submit form service'),
+            success: (rs => {
+                console.log('update service success');
+                window.location.replace('/admin/services-details');
+            }),
+            error: (error => {
+                console.log(error);
+                window.location.replace('/admin/services-details');
+            })
+        });
+        return false;
+    }
+    //delete post
+    function deleteServiceDetails(id) {
+        $.ajax({
+            url: './delete',
+            method: 'POST',
+            dataType: 'json',
+            data: {id:id},
+            complete: () => console.log('completed submit form service'),
+            success: (rs => {
+                console.log('update service success');
+                window.location.replace('/admin/services-details');
+            }),
+            error: (error => {
+                console.log(error);
+                window.location.replace('/admin/services-details');
+            })
+        });
+        return false;
+    }
+    //back service
+    function backListServiceDetails() {
+        window.location.replace('/admin/services-details');
+    }
+</script>

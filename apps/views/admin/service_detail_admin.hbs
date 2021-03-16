@@ -1,0 +1,66 @@
+<main class="main-content bgc-grey-100">
+  <div id="mainContent">
+    <div class="container-fluid">
+      <h1 class="table-header text-center">Manage Services Detail</h1>
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Post table</h6>
+          <a href="/admin/services-details/add"><button type="button" class="btn btn-success ml-2"><i
+                class="fas fa-plus-circle mr-1" style="color:#ffffff;"></i>Add Services Detail</button></a>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                 <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Price 2</th>  
+                  <th>Discount Percent</th>
+                  <th>Description</th>
+                  <th>Created At</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Price 2</th>
+                  <th>Discount Percent</th>
+                  <th>Description</th>
+                  <th>Created At</th>
+                  <th>
+                    <a href="/admin/services-details/deleteall?id={{id}}"><button type="button"
+                    class="btn btn-primary ml-2"><i class="fas fa-edit mr-1"
+                    style="color:#ffffff;"></i>Detele All</button></a>
+                  </th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {{#each this.servicesDetail}}
+                <tr>
+                  <td>{{id}}</td>
+                  <td>{{name}}</td>
+                  <td>{{price}}</td>
+                  <td>{{price2}}</td>
+                  <td>{{discount_percent}}</td>
+                  <td>{{description}}</td>
+                  <td>{{moment created_at format="YYYY/MM/DD hh:mm:ss"}}</td>
+                    <td width="15%">
+                        <a href="/admin/services-details/edit?id={{id}}"><button type="button"
+                        class="btn btn-primary ml-2"><i class="fas fa-edit mr-1"
+                        style="color:#ffffff;"></i>Edit</button></a>
+                    </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

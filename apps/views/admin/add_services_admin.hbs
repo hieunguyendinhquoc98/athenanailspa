@@ -1,0 +1,120 @@
+{{#section 'css'}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css" media="all"
+    rel="stylesheet" type="text/css" />
+{{/section}}
+
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fas/theme.min.js"></script>
+<script>
+    $(function () {
+        $("#fuMain").fileinput({
+            theme: 'fas',
+            dropZoneEnabled: false,
+            showCancel: false,
+            allowedFileExtensions: ['png', 'jpg', 'gif','jpeg'],
+            uploadUrl: './upload',
+            uploadAsync: false,
+        }).on('filebatchuploadsuccess', function (event, data) {
+            $.each(data.files, function (key, file) {
+                var fname = file.name;
+                var out = '/img/upload/'+ fname;
+                $('#imageUrl').val(out);
+            });
+        })
+        .on('fileuploaded', function (event, data) {
+            $.each(data.files, function (key, file) {
+                var fname = file.name;
+                var out = '/img/upload/' + fname;
+                $('#imageUrl').val(out);
+            });
+        });
+        
+    })
+</script>
+{{/section}}
+<main class="main-content">
+    <div id="mainContent">
+        <div class="container mt-60">
+            <div class="masonry-item col-md-12">
+                <div class="card shadow mb-4">
+                    <div class="text-center card-header py-3 text-center">
+                        <h3 style="font-weight: bold; color: #029a00"><a></a>ADD SERVICE</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mt-30">
+                            <form id="formAddPost">
+                                <div class="form-row">
+                                    <div class="form-group col-md-8"><label for="title">
+                                            <h4>Service Name</h4>
+                                        </label>
+                                        <textarea rows="1" type="text" class="form-control" id="serviceName"
+                                            name="services_name" placeholder="Type name of service"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <form method="POST">
+                                            <div class="form-group">
+                                                <label for="fuMain">
+                                                    <h4>Upload Image</h4>
+                                                </label>
+                                                <div class="file-loading">
+                                                    <input id="fuMain" name="fuMain" type="file">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="title">
+                                            <h4>Image Url</h4>
+                                        </label>
+                                        <textarea rows="1" type="text" class="form-control" id="imageUrl"
+                                            name="image_service"
+                                            placeholder="Autogenerate when choose image to upload url"></textarea>
+                                    </div>
+                                </div>
+                                <hr>
+                            </form>
+                        </div>
+                        <button type="button" onclick="backListService()" class="btn btn-warning mr-2 ml-2 mb-3">
+                            BACK
+                        </button>
+                        <button type="submit" onclick="addService()" class="btn btn-primary mr-2 ml-2 mb-3">
+                            ADD
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    function addService() {
+        var frmUn = $('form#formAddPost').serializeArray();
+        var frm = {};
+        $.map(frmUn, function (n, i) {
+            frm[n['name']] = n['value'];
+        });
+        console.log(JSON.stringify(frm));
+        $.ajax({
+            url: './add',
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(frm),
+            complete: () => console.log('completed submit form service'),
+            success: (rs => {
+                console.log('add service success');
+                window.location.reload('/');
+            }),
+            error: (error => {
+                console.log(error);
+                window.location.reload('/');
+            })
+        });
+        return false;
+    };
+        //back service
+    function backListService() {
+        window.location.replace('/admin/manage-services');
+    }
+</script>

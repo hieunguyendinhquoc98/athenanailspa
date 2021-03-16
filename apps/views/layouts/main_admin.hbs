@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>AThena Admin</title>
+    <style>
+        #loader {
+            transition: all .3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+            z-index: 90000
+        }
+
+        #loader.fadeOut {
+            opacity: 0;
+            visibility: hidden
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            background-color: #333;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+            animation: sk-scaleout 1s infinite ease-in-out
+        }
+
+        @-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0)
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                opacity: 0
+            }
+        }
+
+        @keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../css/admin/themify-icons.css">
+
+    <link href="../../css/admin/style.css" rel="stylesheet">
+
+    <link href="../../css/admin/style_manage_service.css" rel="stylesheet">
+    {{!-- font awesome --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    {{!-- format datetime --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script>
+        moment().format("YYYY/MM/DD h:mm:ss");
+    </script>
+    {{{_sections.css}}}
+
+</head>
+
+<body class="app">
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <script>window.addEventListener('load', function load() {
+            const loader = document.getElementById('loader');
+            setTimeout(function () {
+                loader.classList.add('fadeOut');
+            }, 300);
+        });</script>
+    <div>
+        <div class="sidebar">
+            {{>sidebar.admin}}
+        </div>
+        <div class="page-container">
+            <div class="header navbar">
+                {{>header.admin}}
+            </div>
+            {{{body}}}
+            {{>footer.admin}}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    
+    <script type="text/javascript" src="../../js/admin/vendor.js"></script>
+    <script type="text/javascript" src="../../js/admin/bundle.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    {{{_sections.js}}}
+
+</body>
+
+</html>

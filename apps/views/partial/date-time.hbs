@@ -1,0 +1,136 @@
+<div class="modal fade" id="modalDateTime" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center"
+                style="padding-top: 2%; padding-bottom: 0%;height: 50px; background: #f5f6f7;line-height: 19px">
+                <h5 class="text-center">Select date &#38; time</h5>
+                <button type="button" class="close text-center" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div>
+                <div class="form-group mx-3">
+                    <h5 class="m-t-5">Solar Full set</h5>
+                    <p style="font-size: 14px; color: #67696b">30 minutes and up - 30</p>
+                </div>
+                <div style="background-color: #f5f6f7">
+                    <form class="mx-3">
+                        <div class="form-group">
+                            <label for="choosedate">Choose Date</label>
+                            <input onchange="changeDate()" type="date" class="form-control" id="choosedate">
+                        </div>
+                        <label id="date" for="time">Sunday</label>
+                        <div id="time" class="container">
+                            <div class="row">
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(1)" id="hour1" value="9:00 AM"
+                                        class="btn btn-outline-primary btn-block">9:00 AM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(2)" id="hour2" value="9:30 AM"
+                                        class="btn btn-outline-primary btn-block">9:30
+                                        AM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(3)" id="hour3" value="10:00 AM"
+                                        class="btn btn-outline-primary btn-block">10:00 AM</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(4)" id="hour4" value="10:30 AM"
+                                        class="btn btn-outline-primary btn-block">10:30 AM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(5)" id="hour5" value="11:00 AM"
+                                        class="btn btn-outline-primary btn-block">11:00 AM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(6)" id="hour6" value="11:30 AM"
+                                        class="btn btn-outline-primary btn-block">11:30 AM</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(7)" id="hour7" value="12:00 PM"
+                                        class="btn btn-outline-primary btn-block">12:00 PM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(8)" id="hour8" value="12:30 PM"
+                                        class="btn btn-outline-primary btn-block">12:30 PM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" value="1:00 PM" onclick="showBookingForm(9)" id="hour9"
+                                        class="btn btn-outline-primary btn-block">1:00
+                                        PM</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(10)" id="hour10" value="2:00 PM"
+                                        class="btn btn-outline-primary btn-block">2:00
+                                        PM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(11)" id="hour11" value="2:30 PM"
+                                        class="btn btn-outline-primary btn-block">2:30
+                                        PM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(12)" id="hour12" value="3:00 PM"
+                                        class="btn btn-outline-primary btn-block">3:00
+                                        PM</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(13)" id="hour13" value="3:30 PM"
+                                        class="btn btn-outline-primary btn-block">3:30
+                                        PM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(14)" id="hour14" value="4:00 PM"
+                                        class="btn btn-outline-primary btn-block">4:00
+                                        PM</button>
+                                </div>
+                                <div class="col-4 p-1">
+                                    <button type="button" onclick="showBookingForm(15)" id="hour15" value="4:30 PM"
+                                        class="btn btn-outline-primary btn-block">4:30
+                                        PM</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="container align-items-center">
+                <p style="font-size: 14px; color: #67696b">All times are in America/Chicago (CDT)</p>
+            </div>
+            <div class="modal-footer align-content-start">
+                <button type="button" class="btn" style="background-color: #f5f6f7">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var today = new Date();
+    document.getElementById("choosedate").value = moment(today).format('YYYY-MM-DD');
+    document.getElementById("date").innerHTML = moment(today).format("dddd, MMMM DD YYYY");
+
+    function changeDate() {
+        document.getElementById("date").innerHTML = moment(document.getElementById("choosedate").value).format("dddd, MMMM DD YYYY");
+    }
+
+    function showBookingForm(id) {
+        $('#modalBookingForm').modal("show");
+
+        $('#modalDateTime').modal("hide");
+
+        var schedule = moment(document.getElementById("choosedate").value).format("dddd, MMMM DD YYYY") + ", " + $('button#hour' + id).val()
+
+        document.getElementById("schedule").innerHTML = schedule;
+
+    }
+</script>

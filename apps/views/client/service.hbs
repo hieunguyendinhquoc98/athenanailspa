@@ -1,0 +1,46 @@
+<section class="bg-title-page p-t-4p-b-0 flex-col-c-m" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fimg-service%2Fbg_title.jpg?alt=media&token=637db552-e323-40be-8056-515a9598e677);">
+</section>
+<section>
+	<div class="templatemo-container">
+		<div class="col-lg-s black-bg left-container">
+			<div class="tm-left-inner-container">
+				<div class="leftbar p-r-20 p-r-0-sm">
+					<ul class="p-b-0">
+						<h1 class="l-text1 t-center p-t-20">services</h1>
+						{{#each lcListServices}}
+						<li class="p-t-0 p-l-10 hov3">
+							<a class=" {{#if isActive}}active1{{/if}}" href="/services?id={{id}}">
+								<strong>{{services_name}}</strong>
+							</a><i class="fa fa-home fa-medium"></i>
+						</li>
+						{{/each}}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-7 white-bg right-container">
+			<div class="tm-right-inner-container templatemo-item templatemo-testimonial">
+				{{#each serviceDescription}}
+				<div class="templatemo-border-left">
+					<p class="text-left"><strong>{{name}}</strong></p>
+					{{#if description}}
+					<p><i class="fa fa-quote-left fa-medium"></i>
+						{{description}}
+					</p>
+					{{else}}
+					<p></p>
+					{{/if}}
+					{{#if price2}}
+					<p class="text-right"><strong>${{price}}/${{price2}}</strong></p>
+					{{else}}
+					<p class="text-right"><strong>${{price}}</strong></p>
+					{{/if}}
+				</div>
+				{{/each}}
+
+			</div>
+		</div>
+	</div>
+	<hr>
+</section>

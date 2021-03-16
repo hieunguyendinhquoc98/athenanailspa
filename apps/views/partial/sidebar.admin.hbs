@@ -1,0 +1,39 @@
+<div class="sidebar-inner">
+    <div class="sidebar-logo">
+        <div class="peers ai-c fxw-nw">
+            <div class="peer peer-greed"><a class="sidebar-link td-n" href="/admin">
+                    <div class="peers ai-c fxw-nw">
+                        <div class="peer">
+                            <div class="logo"><img src="https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fadmin%2Flogo.png?alt=media&token=7c3cbfe2-a57b-4497-b257-fa6cf3716a20" alt=""></div>
+                        </div>
+                        <div class="peer peer-greed">
+                            <h5 class="lh-1 mB-0 logo-text">Athena Admin</h5>
+                        </div>
+                    </div>
+                </a></div>
+            <div class="peer">
+                <div class="mobile-toggle sidebar-toggle"><a href="" class="td-n"><i
+                            class="ti-arrow-circle-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="sidebar-menu scrollable pos-r">
+        <li class="nav-item mT-30 active"><a class="sidebar-link" href="/admin"><span class="icon-holder"><i
+                        class="c-blue-500 ti-calendar"></i> </span><span class="title">Manage Schedule Book</span></a>
+        </li>
+        <li class="nav-item"><a class="sidebar-link" href="/admin/manage-services"><span class="icon-holder"><i
+                        class="c-yellow-500 ti-package"></i> </span><span class="title">Manage Service</span></a></li>
+        <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i
+                        class="c-orange-500 ti-layout-list-thumb"></i> </span><span class="title">Services Detail</span>
+                <span class="arrow"><i class="ti-angle-right"></i></span></a>
+            <ul class="dropdown-menu">
+                {{#each lcListServices}}
+                    <li><a class="sidebar-link" href="/admin/services-details?id={{id}}">{{services_name}}</a></li> 
+                {{/each}}
+            </ul>
+        </li>
+        <li class="nav-item"><a class="sidebar-link" href="email.html"><span class="icon-holder"><i
+                        class="c-brown-500 ti-email"></i> </span><span class="title">Email</span></a></li>
+    </ul>
+</div>

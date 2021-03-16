@@ -1,0 +1,330 @@
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2F16.jpg?alt=media&token=78567eb8-641f-46d9-b36c-b090efa80205')">
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2F17.jpg?alt=media&token=f1a96c18-fb42-4329-8c1e-e6a10f8667bd')">
+            </div>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2F18.jpg?alt=media&token=5d482be8-5225-45fa-8ef1-461e9b0b2f7e')">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</header>
+
+<!-- About Area Start -->
+<section class="akame-about-area section-padding-80-0">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Section Heading -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="section-heading mb-80">
+                    <h2>&nbsp;&nbsp;&nbsp; Athena</h2>
+                    <h2>Nails &amp; Spa</h2>
+                    <p>The House of Nails &amp; Spa</p>
+                    <span>About Us</span>
+                </div>
+            </div>
+
+            <!-- About Us Thumbnail -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="about-us-thumbnail mb-80">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2F1.jpeg?alt=media&token=4ec5469f-2021-49f2-8217-1f1bda47cab8" alt="">
+                </div>
+            </div>
+
+            <!-- About Us Content -->
+            <div class="col-12 col-lg-4">
+                <div class="about-us-content mb-80 pl-4">
+                    <h3>Beautiful Nails Comes From A Legendary.</h3>
+                    <p>“Maybe your life is not sparkle but your Nails can be”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Area End -->
+
+<!-- Border -->
+<div class="container">
+    <div class="border-top mt-3"></div>
+</div>
+
+<!-- Our Service Area Start -->
+<section class="akame-service-area">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="section_title new_arrivals_title">
+                    <h2>Our Services</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="list-services">
+            <div class="col">
+                <div class="product_slider_container">
+                    <div class="owl-carousel owl-theme product_slider">                        
+						{{#each lcListServices}}
+                        <div class="owl-item product_slider_item">
+                            <div class="product-item women">
+                                <div class="product">
+                                    <div class="product_image">
+                                        <img src="{{image_service}}" alt="">
+                                    </div>
+                                    <div class="favorite"></div>
+                                    <div
+                                        class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+                                        <span>new</span></div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="#">{{services_name}}</a></h6>
+                                        <div class="product_price red_button" style="min-width: 200px"><a href="/services?id={{id}}">View more >>></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						{{/each}}
+                    </div>
+                    <!-- Slider Navigation -->
+                    <div
+                        class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
+                    <div
+                        class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Our Service Area End -->
+
+<!-- Why Choose Us Area Start -->
+<section class="why-choose-us-area bg-gray section-padding-80-0">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+                <div class="choose-us-thumbnail mt-30 mb-80">
+                    <div class="choose-us-img bg-img" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2F2.jpeg?alt=media&token=3b53b949-b065-4cbf-bbcc-dc993edf354a);"></div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                    <h2>Why Choose Us</h2>
+                </div>
+                <!-- Choose Us Content -->
+                <div class="choose-us-content mt-30 mb-80">
+                    <ul>
+                        <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Friendly and courteous staff.</li>
+                        <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Unforgettable pampering experience.</li>
+                        <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Fast response to requests.</li>
+                        <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Providing the gold standard in cleanliness 
+                        and sanitation.</li>
+                        <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Materials such as buffer, files, 
+                        and pumice stone are never shared or reused.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Why Choose Us Area End -->
+
+<!-- Portfolio Area Start -->
+<section class="akame-portfolio section-padding-80 clearfix">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Our Gallery</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="portfolio-menu text-center mb-30">
+                    <button class="btn active" data-filter="*">All</button>
+                    <button class="btn" data-filter=".nails">Nails</button>
+                    <button class="btn" data-filter=".drinks">Drinks</button>
+                    <button class="btn" data-filter=".freestyle">Freestyle</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row akame-portfolio-area">
+            {{#each lcListGallery}}
+                        <!-- Single Portfolio Item -->
+            <div class="col-12 col-sm-6 col-lg-3 akame-portfolio-item {{type}} mb-30 wow fadeInUp" data-wow-delay="300ms">
+                <div class="akame-portfolio-single-item">
+                    <img src="{{img_dir}}" alt="">
+                    <!-- Overlay Content -->
+                    <div class="overlay-content d-flex align-items-center justify-content-center">
+                        <div class="overlay-text text-center">
+                            <h4>Click icon search for details</h4>
+                        </div>
+                    </div>
+                    <!-- Thumbnail Zoom -->
+                    <a href="{{img_dir}}" class="thumbnail-zoom"><i class="icon_search"></i></a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<!-- Portfolio Area End -->
+
+<!-- Our Expert Area Start -->
+<section class="akame-our-expert-area section-padding-80-0">
+    <!-- Side Thumbnail -->
+    <div class="side-thumbnail" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2F14.png?alt=media&token=954a8455-03b4-438e-932e-dc218d940427);"></div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-12 col-lg-6">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                    <h2>Our Experts</h2>
+                    <p>Our staff are trained to cater to your needs and exceed your expectations.  You will leave our salon feeling relaxed and revitalized.</p>
+                </div>
+                <!-- Our Certificate -->
+                <div class="our-certificate-area mb-60 d-flex align-items-center">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fcore-img%2Fcertificate-1.png?alt=media&token=42716d2a-c94f-49aa-abc9-1e4e89286935" alt="">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fcore-img%2Fcertificate-2.png?alt=media&token=c69eca2e-f68d-480b-b7f7-25f5e99be699" alt="">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fcore-img%2Fcertificate-3.png?alt=media&token=fd0e8482-e3d5-4adf-9ce2-5db2b47b9670" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <!-- Single Team Member -->
+        {{#each lcListEmployees}}
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="300ms">
+                    <div class="team-member-img">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2F2.jpeg?alt=media&token=3b53b949-b065-4cbf-bbcc-dc993edf354a" alt="">
+                        <!-- Social Info -->
+                        <div class="team-social-info d-flex align-items-center justify-content-center">
+                            <div class="social-link">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member-info">
+                        <h5>{{firstname}} {{lastname}}</h5>
+                        <p>{{nickname}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        </div>
+    </div>
+</section>
+<!-- Our Expert Area End -->
+
+<!-- Border -->
+<div class="container">
+    <div class="border-top mt-3"></div>
+</div>
+<!-- Call To Action Area Start -->
+<section class="akame-cta-area bg-gray section-padding-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 col-xl-5">
+                <div class="cta-content">
+                    <h2>Make Athena Your <br>Number One Choice</h2>
+                    <p> Saturday is the day for Spa. Relax, indulge, enjoy, and love youeself too.
+                    </p>
+                    <footer class="text-right">---Ana Monnar---</footer>
+                    <div class="akame-btn-group mt-30">
+                        <a href="#" data-toggle="modal" data-target="#modalBookingForm"
+                            class="btn akame-btn active mr-3 mb-3 mb-sm-0">Book An Appointment</a>
+                        <a href="/contact" target="_blank" class="btn akame-btn">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CTA Thumbnail -->
+    <div class="cta-thumbnail bg-img" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/athenanailsgallery.appspot.com/o/img%2Fbg-img%2Fcta.png?alt=media&token=7a6bfa83-f5bc-4505-989a-7f260bde3966);"></div>
+
+{{!-- <!-- FACEBOOK MESSENGER CHAT BOX -->
+<div id="fb-root"></div>
+<script>
+  // We create the DIV dynamically to work correctly with Tag Manager
+  var chatDiv = document.createElement('div');
+  chatDiv.className = 'fb-customerchat';
+  chatDiv.setAttribute('page_id','2445727928782838'); // Facebook Page ID goes here
+  chatDiv.
+  document.body.appendChild(chatDiv);
+  // Initialise Facebook SDK
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '2471713603105735', // Facebook App ID goes here
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script> --}}
+
+<script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fmessengerBtn">
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version : "v3.3"
+        });
+    };
+    </script>
+    <div id="fb-root"></div>
+    <div class="fb-customerchat" 
+        attribution=setup_tool 
+        page_id="2445727928782838" 
+        theme_color="#13cf13" 
+        logged_in_greeting="Hi! I'm Hieu, How can I help you? =)" 
+        logged_out_greeting="Hi! I'm Hieu, How can I help you? =)">
+    </div>
+    </div>
+
+</section>

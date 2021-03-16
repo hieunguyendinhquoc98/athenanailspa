@@ -1,0 +1,95 @@
+<div class="modal fade" id="modalBookingForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center"
+                style="padding-top: 2%; padding-bottom: 0%;height: 50px; background: #f5f6f7;line-height: 19px">
+                <h5 class="text-center">Request Appointment</h5>
+                <button type="button" class="close text-center" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3 ">
+                <form id="booknow">
+                    <div class="form-group m-0">
+                        <div class="row container">
+                            <div>
+                                <i class="fa fa-calendar w-75 align-items-center" aria-hidden="true"></i>
+                            </div>
+                            <label class="m-l-10" id="schedule" name='schedule_booking'></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFullName">Full Name</label>
+                        <input type="text" class="form-control" id="inputFullName" name="customer_name"
+                            aria-describedby="emailHelp" placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhoneNumber">Phone Number</label>
+                        <input type="number" class="form-control" id="inputPhoneNumber" name="phone_number"
+                            placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectServices">Choose Services</label>
+                        <select class="form-control" id="selectServices" name="service_id">
+                            {{#each lcListServices}}
+                            <option id="{{id}}" value="{{id}}">{{services_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectStaff">Choose Staff</label>
+                        <select class="form-control" id="selectStaff" name="employee_id">
+                            {{#each lcListEmployees}}
+                            <option id="{{id}}" value="{{id}}">{{firstname}} {{lastname}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer w-100 justify-content-between" style="height: 120; padding: 2%">
+                <div class="float-left justify-content-start m-l-19">
+                    <button type="button" class="btn" style="background-color: #bbbfc4">Back</button>
+
+                </div>
+                <div class="float-right justify-content-end m-r-19">
+                    <button type="submit" class="btn" onclick="booknow()"
+                        style="background-color: #bca858; color: white; font-family: serif; text-transform: uppercase">book
+                        now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function booknow() {
+        var frmUn = $('form#booknow').serializeArray();
+        var frm = {};
+        $.map(frmUn, function (n, i) {
+            frm[n['name']] = n['value'];
+        });
+        var schedule = $('#schedule').text();
+        frm['schedule_booking'] = moment.parseZone(schedule).utc().format("YYYY-MM-DD HH:mm:ss");
+
+        console.log(JSON.stringify(frm));
+        $.ajax({
+            url: '/booking',
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(frm),
+            complete: () => console.log('completed submit form book'),
+            success: (rs => {
+                console.log('book schedule success');
+                window.location.reload('/');
+            }),
+            error: (error => {
+                console.log(error);
+                window.location.reload('/');
+            })
+        });
+        return false;
+    }
+</script>

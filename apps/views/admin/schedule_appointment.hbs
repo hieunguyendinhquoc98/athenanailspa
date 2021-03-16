@@ -1,0 +1,62 @@
+<main class="main-content bgc-grey-100">
+  <div id="mainContent">
+    <div class="container-fluid">
+      <h1 class="table-header text-center">Manage Schedule</h1>
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Schedule table</h6>
+          <div class="text-center m-5">
+            <input type="date" class="form-control" value="{{date}}" id="schedule_booking" name="schedule_booking">
+          </div>
+          <button type="button" onclick="search()" class="btn btn-success ml-2"><i class="fas fa-search mr-1"
+              style="color:#ffffff;"></i>Search</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th width="5%">id</th>
+                  <th width="19%">Customer Name</th>
+                  <th width="19%">Phone Number</th>
+                  <th width="19%">Schedule Book</th>
+                  <th width="19%">Services</th>
+                  <th width="19%">Staff</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>id</th>
+                  <th>Customer Name</th>
+                  <th>Phone Number</th>
+                  <th>Schedule Book</th>
+                  <th>Services</th>
+                  <th>Staff</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {{#each this.booking}}
+                <tr>
+                  <td>{{id}}</td>
+                  <td>{{customer_name}}</td>
+                  <td>{{phone_number}}</td>
+                  <td>{{moment schedule_booking format="YYYY/MM/DD hh:mm:ss"}}</td>
+                  <td>{{services_name}}</td>
+                  <td>{{firstnamestaff}} {{lastnamestaff}}</td>
+                </tr>
+                {{/each}}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  function search() {
+    var schedule = document.getElementById("schedule_booking").value;
+    window.location.replace('/admin?schedule=' + schedule);
+  }
+</script>

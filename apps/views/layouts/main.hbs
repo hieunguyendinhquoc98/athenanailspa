@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Athena Nails & Spa</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+
+    <link href="./css/modern-business.css" rel="stylesheet">
+    <link href="./css/owl.carousel.css" rel="stylesheet">
+    <link href="./css/owl.theme.default.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/templatemo_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./css/util.css">
+    <link href="main_styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 10.734692, lng: 106.674381 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('my-map'), { zoom: 18, center: uluru });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzGTfU97JHRG9n2U29EAojIhFll2RE09I&callback=initMap">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+</head>
+
+<body>
+    <header class="header-area">
+        {{>header}}
+    </header>
+    {{{body}}}
+    <!-- Footer Area Start -->
+    <footer class="footer-area section-padding-80-0">
+        {{>footer}}
+    </footer>
+    <!-- Footer Area End -->
+    {{>booking}}
+    {{>date-time}}
+    <!-- All JS Files -->
+    <script src="./js/owl.carousel.js"></script>
+
+    <script src="custom.js"></script>
+
+    <script src="header.js"></script>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All Plugins -->
+    <script src="js/akame.bundle.js"></script>
+    <!-- Active -->
+    <script src="js/default-assets/active.js"></script>
+    {{{_sections.js}}}
+</body>
+
+</html>
